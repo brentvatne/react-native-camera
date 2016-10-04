@@ -37,11 +37,6 @@ public class RCTCameraViewManager extends ViewGroupManager<RCTCameraView> {
         view.setOrientation(orientation);
     }
 
-    @ReactProp(name = "barcodeScannerEnabled")
-    public void setBarcodeScannerEnabled(RCTCameraView view, boolean barcodeScannerEnabled) {
-        view.setBarcodeScannerEnabled(barcodeScannerEnabled);
-    }
-
     @ReactProp(name = "barCodeTypes")
     public void setBarCodeTypes(RCTCameraView view, ReadableArray barCodeTypes) {
         if (barCodeTypes == null) {

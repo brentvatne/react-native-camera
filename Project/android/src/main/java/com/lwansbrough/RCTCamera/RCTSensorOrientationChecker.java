@@ -1,7 +1,3 @@
-/**
- * Created by rpopovici on 23/03/16.
- */
-
 package com.lwansbrough.RCTCamera;
 
 import android.content.Context;

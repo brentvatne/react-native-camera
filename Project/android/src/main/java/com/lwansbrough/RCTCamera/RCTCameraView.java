@@ -1,7 +1,3 @@
-/**
- * Created by Fabrice Armisen (farmisen@gmail.com) on 1/3/16.
- */
-
 package com.lwansbrough.RCTCamera;
 
 import android.content.Context;
@@ -63,16 +59,9 @@ public class RCTCameraView extends ViewGroup {
         } else {
             _viewFinder = new RCTCameraViewFinder(_context, type);
             if (-1 != this._torchMode) {
-                _viewFinder.setFlashMode(this._torchMode);
+                _viewFinder.setTorchMode(this._torchMode);
             }
             addView(_viewFinder);
-        }
-    }
-
-    public void setCaptureQuality(String captureQuality) {
-        this._captureQuality = captureQuality;
-        if (this._viewFinder != null) {
-            this._viewFinder.setCaptureQuality(captureQuality);
         }
     }
 
@@ -88,10 +77,6 @@ public class RCTCameraView extends ViewGroup {
         if (this._viewFinder != null) {
             layoutViewFinder();
         }
-    }
-
-    public void setBarcodeScannerEnabled(boolean barcodeScannerEnabled) {
-        RCTCamera.getInstance().setBarcodeScannerEnabled(barcodeScannerEnabled);
     }
 
     public void setBarCodeTypes(List<String> types) {
@@ -127,6 +112,7 @@ public class RCTCameraView extends ViewGroup {
         int viewfinderHeight;
         double ratio;
 
+        // Just fill the given space
         ratio = this._viewFinder.getRatio();
         if (ratio * height < width) {
             viewfinderHeight = (int) (width / ratio);

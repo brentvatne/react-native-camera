@@ -20,7 +20,7 @@ class CameraTesting extends React.Component {
   }
 
   _handleBarCodeRead = (data) => {
-    console.log(data);
+    alert(JSON.stringify(data));
   }
 }
 

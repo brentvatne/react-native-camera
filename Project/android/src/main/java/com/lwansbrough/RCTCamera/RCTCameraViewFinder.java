@@ -1,7 +1,3 @@
-/**
- * Created by Fabrice Armisen (farmisen@gmail.com) on 1/3/16.
- */
-
 package com.lwansbrough.RCTCamera;
 
 import android.content.Context;
@@ -88,16 +84,8 @@ class RCTCameraViewFinder extends TextureView implements TextureView.SurfaceText
         }).start();
     }
 
-    public void setCaptureQuality(String captureQuality) {
-        RCTCamera.getInstance().setCaptureQuality(_cameraType, captureQuality);
-    }
-
     public void setTorchMode(int torchMode) {
         RCTCamera.getInstance().setTorchMode(_cameraType, torchMode);
-    }
-
-    public void setFlashMode(int flashMode) {
-        RCTCamera.getInstance().setFlashMode(_cameraType, flashMode);
     }
 
     private void startPreview() {
@@ -248,7 +236,7 @@ class RCTCameraViewFinder extends TextureView implements TextureView.SurfaceText
      * See {Camera.PreviewCallback}
      */
     public void onPreviewFrame(byte[] data, Camera camera) {
-        if (RCTCamera.getInstance().isBarcodeScannerEnabled() && !RCTCameraViewFinder.barcodeScannerTaskLock) {
+        if (!RCTCameraViewFinder.barcodeScannerTaskLock) {
             RCTCameraViewFinder.barcodeScannerTaskLock = true;
             new ReaderAsyncTask(camera, data).execute();
         }
