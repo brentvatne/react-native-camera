@@ -22,29 +22,9 @@ public class RCTCameraViewManager extends ViewGroupManager<RCTCameraView> {
         return new RCTCameraView(context);
     }
 
-    @ReactProp(name = "aspect")
-    public void setAspect(RCTCameraView view, int aspect) {
-        view.setAspect(aspect);
-    }
-
-    @ReactProp(name = "captureMode")
-    public void setCaptureMode(RCTCameraView view, int captureMode) {
-        // TODO - implement video mode
-    }
-
-    @ReactProp(name = "captureTarget")
-    public void setCaptureTarget(RCTCameraView view, int captureTarget) {
-        // No reason to handle this props value here since it's passed again to the RCTCameraModule capture method
-    }
-
     @ReactProp(name = "type")
     public void setType(RCTCameraView view, int type) {
         view.setCameraType(type);
-    }
-
-    @ReactProp(name = "captureQuality")
-    public void setCaptureQuality(RCTCameraView view, String captureQuality) {
-        view.setCaptureQuality(captureQuality);
     }
 
     @ReactProp(name = "torchMode")
@@ -52,19 +32,9 @@ public class RCTCameraViewManager extends ViewGroupManager<RCTCameraView> {
         view.setTorchMode(torchMode);
     }
 
-    @ReactProp(name = "flashMode")
-    public void setFlashMode(RCTCameraView view, int flashMode) {
-        view.setFlashMode(flashMode);
-    }
-
     @ReactProp(name = "orientation")
     public void setOrientation(RCTCameraView view, int orientation) {
         view.setOrientation(orientation);
-    }
-
-    @ReactProp(name = "captureAudio")
-    public void setCaptureAudio(RCTCameraView view, boolean captureAudio) {
-        // TODO - implement video mode
     }
 
     @ReactProp(name = "barcodeScannerEnabled")

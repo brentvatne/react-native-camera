@@ -18,10 +18,8 @@ public class RCTCameraView extends ViewGroup {
     private final Context _context;
     private RCTCameraViewFinder _viewFinder = null;
     private int _actualDeviceOrientation = -1;
-    private int _aspect = RCTCameraModule.RCT_CAMERA_ASPECT_FIT;
     private String _captureQuality = "high";
     private int _torchMode = -1;
-    private int _flashMode = -1;
 
     public RCTCameraView(Context context) {
         super(context);
@@ -58,20 +56,12 @@ public class RCTCameraView extends ViewGroup {
         this.addView(this._viewFinder, 0);
     }
 
-    public void setAspect(int aspect) {
-        this._aspect = aspect;
-        layoutViewFinder();
-    }
-
     public void setCameraType(final int type) {
         if (null != this._viewFinder) {
             this._viewFinder.setCameraType(type);
             RCTCamera.getInstance().adjustPreviewLayout(type);
         } else {
             _viewFinder = new RCTCameraViewFinder(_context, type);
-            if (-1 != this._flashMode) {
-                _viewFinder.setFlashMode(this._flashMode);
-            }
             if (-1 != this._torchMode) {
                 _viewFinder.setFlashMode(this._torchMode);
             }
@@ -90,13 +80,6 @@ public class RCTCameraView extends ViewGroup {
         this._torchMode = torchMode;
         if (this._viewFinder != null) {
             this._viewFinder.setTorchMode(torchMode);
-        }
-    }
-
-    public void setFlashMode(int flashMode) {
-        this._flashMode = flashMode;
-        if (this._viewFinder != null) {
-            this._viewFinder.setFlashMode(flashMode);
         }
     }
 
@@ -143,30 +126,14 @@ public class RCTCameraView extends ViewGroup {
         int viewfinderWidth;
         int viewfinderHeight;
         double ratio;
-        switch (this._aspect) {
-            case RCTCameraModule.RCT_CAMERA_ASPECT_FIT:
-                ratio = this._viewFinder.getRatio();
-                if (ratio * height > width) {
-                    viewfinderHeight = (int) (width / ratio);
-                    viewfinderWidth = (int) width;
-                } else {
-                    viewfinderWidth = (int) (ratio * height);
-                    viewfinderHeight = (int) height;
-                }
-                break;
-            case RCTCameraModule.RCT_CAMERA_ASPECT_FILL:
-                ratio = this._viewFinder.getRatio();
-                if (ratio * height < width) {
-                    viewfinderHeight = (int) (width / ratio);
-                    viewfinderWidth = (int) width;
-                } else {
-                    viewfinderWidth = (int) (ratio * height);
-                    viewfinderHeight = (int) height;
-                }
-                break;
-            default:
-                viewfinderWidth = (int) width;
-                viewfinderHeight = (int) height;
+
+        ratio = this._viewFinder.getRatio();
+        if (ratio * height < width) {
+            viewfinderHeight = (int) (width / ratio);
+            viewfinderWidth = (int) width;
+        } else {
+            viewfinderWidth = (int) (ratio * height);
+            viewfinderHeight = (int) height;
         }
 
         int viewFinderPaddingX = (int) ((width - viewfinderWidth) / 2);
