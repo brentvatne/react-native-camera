@@ -71,13 +71,6 @@ public class RCTCameraView extends ViewGroup {
         }
     }
 
-    public void setOrientation(int orientation) {
-        RCTCamera.getInstance().setOrientation(orientation);
-        if (this._viewFinder != null) {
-            layoutViewFinder();
-        }
-    }
-
     public void setBarCodeTypes(List<String> types) {
         RCTCamera.getInstance().setBarCodeTypes(types);
     }

@@ -32,11 +32,6 @@ public class RCTCameraViewManager extends ViewGroupManager<RCTCameraView> {
         view.setTorchMode(torchMode);
     }
 
-    @ReactProp(name = "orientation")
-    public void setOrientation(RCTCameraView view, int orientation) {
-        view.setOrientation(orientation);
-    }
-
     @ReactProp(name = "barCodeTypes")
     public void setBarCodeTypes(RCTCameraView view, ReadableArray barCodeTypes) {
         if (barCodeTypes == null) {

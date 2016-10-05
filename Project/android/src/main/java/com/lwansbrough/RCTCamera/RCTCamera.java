@@ -14,7 +14,6 @@ public class RCTCamera {
     private final HashMap<Integer, Integer> _cameraTypeToIndex;
     private final Map<Number, Camera> _cameras;
     private List<String> _barCodeTypes = null;
-    private int _orientation = -1;
     private int _actualDeviceOrientation = 0;
     private int _adjustedDeviceOrientation = 0;
 
@@ -102,19 +101,6 @@ public class RCTCamera {
         }
 
         return smallestSize;
-    }
-
-    public int getOrientation() {
-        return _orientation;
-    }
-
-    public void setOrientation(int orientation) {
-        if (_orientation == orientation) {
-            return;
-        }
-        _orientation = orientation;
-        adjustPreviewLayout(RCTCameraModule.RCT_CAMERA_TYPE_FRONT);
-        adjustPreviewLayout(RCTCameraModule.RCT_CAMERA_TYPE_BACK);
     }
 
     public List<String> getBarCodeTypes() {
@@ -236,7 +222,6 @@ public class RCTCamera {
             displayRotation = rotation;
         }
         cameraInfo.rotation = rotation;
-        // TODO: take in account the _orientation prop
 
         setAdjustedDeviceOrientation(rotation);
         camera.setDisplayOrientation(displayRotation);

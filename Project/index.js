@@ -13,10 +13,6 @@ const CameraManager = NativeModules.CameraManager || NativeModules.CameraModule;
 
 function convertNativeProps(props) {
   const newProps = { ...props };
-  if (typeof props.orientation === 'string') {
-    newProps.orientation = Camera.Constants.Orientation[props.orientation];
-  }
-
   if (typeof props.torchMode === 'string') {
     newProps.torchMode = Camera.Constants.TorchMode[props.torchMode];
   }
@@ -32,7 +28,6 @@ export default class Camera extends Component {
   static Constants = {
     BarCodeType: CameraManager.BarCodeType,
     Type: CameraManager.Type,
-    Orientation: CameraManager.Orientation,
     TorchMode: CameraManager.TorchMode
   };
 
@@ -40,10 +35,6 @@ export default class Camera extends Component {
     ...View.propTypes,
     onBarCodeRead: PropTypes.func,
     barCodeTypes: PropTypes.array,
-    orientation: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
     torchMode: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
