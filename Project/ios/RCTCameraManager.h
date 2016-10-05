@@ -4,53 +4,53 @@
 @class RCTCamera;
 
 typedef NS_ENUM(NSInteger, RCTCameraAspect) {
-  RCTCameraAspectFill = 0,
-  RCTCameraAspectFit = 1,
-  RCTCameraAspectStretch = 2
+    RCTCameraAspectFill = 0,
+    RCTCameraAspectFit = 1,
+    RCTCameraAspectStretch = 2
 };
 
 typedef NS_ENUM(NSInteger, RCTCameraCaptureSessionPreset) {
-  RCTCameraCaptureSessionPresetLow = 0,
-  RCTCameraCaptureSessionPresetMedium = 1,
-  RCTCameraCaptureSessionPresetHigh = 2,
-  RCTCameraCaptureSessionPresetPhoto = 3
+    RCTCameraCaptureSessionPresetLow = 0,
+    RCTCameraCaptureSessionPresetMedium = 1,
+    RCTCameraCaptureSessionPresetHigh = 2,
+    RCTCameraCaptureSessionPresetPhoto = 3
 };
 
 typedef NS_ENUM(NSInteger, RCTCameraCaptureMode) {
-  RCTCameraCaptureModeStill = 0,
-  RCTCameraCaptureModeVideo = 1
+    RCTCameraCaptureModeStill = 0,
+    RCTCameraCaptureModeVideo = 1
 };
 
 typedef NS_ENUM(NSInteger, RCTCameraCaptureTarget) {
-  RCTCameraCaptureTargetMemory = 0,
-  RCTCameraCaptureTargetDisk = 1,
-  RCTCameraCaptureTargetTemp = 2,
-  RCTCameraCaptureTargetCameraRoll = 3
+    RCTCameraCaptureTargetMemory = 0,
+    RCTCameraCaptureTargetDisk = 1,
+    RCTCameraCaptureTargetTemp = 2,
+    RCTCameraCaptureTargetCameraRoll = 3
 };
 
 typedef NS_ENUM(NSInteger, RCTCameraOrientation) {
-  RCTCameraOrientationAuto = 0,
-  RCTCameraOrientationLandscapeLeft = AVCaptureVideoOrientationLandscapeLeft,
-  RCTCameraOrientationLandscapeRight = AVCaptureVideoOrientationLandscapeRight,
-  RCTCameraOrientationPortrait = AVCaptureVideoOrientationPortrait,
-  RCTCameraOrientationPortraitUpsideDown = AVCaptureVideoOrientationPortraitUpsideDown
+    RCTCameraOrientationAuto = 0,
+    RCTCameraOrientationLandscapeLeft = AVCaptureVideoOrientationLandscapeLeft,
+    RCTCameraOrientationLandscapeRight = AVCaptureVideoOrientationLandscapeRight,
+    RCTCameraOrientationPortrait = AVCaptureVideoOrientationPortrait,
+    RCTCameraOrientationPortraitUpsideDown = AVCaptureVideoOrientationPortraitUpsideDown
 };
 
 typedef NS_ENUM(NSInteger, RCTCameraType) {
-  RCTCameraTypeFront = AVCaptureDevicePositionFront,
-  RCTCameraTypeBack = AVCaptureDevicePositionBack
+    RCTCameraTypeFront = AVCaptureDevicePositionFront,
+    RCTCameraTypeBack = AVCaptureDevicePositionBack
 };
 
 typedef NS_ENUM(NSInteger, RCTCameraFlashMode) {
-  RCTCameraFlashModeOff = AVCaptureFlashModeOff,
-  RCTCameraFlashModeOn = AVCaptureFlashModeOn,
-  RCTCameraFlashModeAuto = AVCaptureFlashModeAuto
+    RCTCameraFlashModeOff = AVCaptureFlashModeOff,
+    RCTCameraFlashModeOn = AVCaptureFlashModeOn,
+    RCTCameraFlashModeAuto = AVCaptureFlashModeAuto
 };
 
 typedef NS_ENUM(NSInteger, RCTCameraTorchMode) {
-  RCTCameraTorchModeOff = AVCaptureTorchModeOff,
-  RCTCameraTorchModeOn = AVCaptureTorchModeOn,
-  RCTCameraTorchModeAuto = AVCaptureTorchModeAuto
+    RCTCameraTorchModeOff = AVCaptureTorchModeOff,
+    RCTCameraTorchModeOn = AVCaptureTorchModeOn,
+    RCTCameraTorchModeAuto = AVCaptureTorchModeAuto
 };
 
 @interface RCTCameraManager : RCTViewManager<AVCaptureMetadataOutputObjectsDelegate, AVCaptureFileOutputRecordingDelegate>
