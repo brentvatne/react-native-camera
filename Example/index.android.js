@@ -6,15 +6,17 @@ import {
   View
 } from 'react-native';
 
-import Camera from 'react-native-camera';
+import BarCodeScanner from 'react-native-camera';
 
 class CameraTesting extends React.Component {
+
   render() {
     return (
       <View style={styles.container}>
-        <Camera
+        <BarCodeScanner
           onBarCodeRead={this._handleBarCodeRead}
-          style={styles.preview} />
+          style={styles.preview}
+        />
       </View>
     );
   }

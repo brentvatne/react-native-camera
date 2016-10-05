@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 
 const CameraManager = NativeModules.CameraManager || NativeModules.CameraModule;
-const CAMERA_REF = 'camera';
 
 function convertNativeProps(props) {
   const newProps = { ...props };
@@ -26,13 +25,6 @@ function convertNativeProps(props) {
     newProps.type = Camera.Constants.Type[props.type];
   }
 
-  // do not register barCodeTypes if no barcode listener
-  if (typeof props.onBarCodeRead !== 'function') {
-    newProps.barCodeTypes = [];
-  }
-
-  newProps.barcodeScannerEnabled = true;
-
   return newProps;
 }
 
@@ -47,7 +39,6 @@ export default class Camera extends Component {
   static propTypes = {
     ...View.propTypes,
     onBarCodeRead: PropTypes.func,
-    barcodeScannerEnabled: PropTypes.bool,
     barCodeTypes: PropTypes.array,
     orientation: PropTypes.oneOfType([
       PropTypes.string,
@@ -86,7 +77,7 @@ export default class Camera extends Component {
     const style = [styles.base, this.props.style];
     const nativeProps = convertNativeProps(this.props);
 
-    return <RCTCamera ref={CAMERA_REF} {...nativeProps} />;
+    return <RCTCamera {...nativeProps} />;
   }
 
   _addOnBarCodeReadListener = () => {

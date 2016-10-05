@@ -14,7 +14,6 @@ public class RCTCameraView extends ViewGroup {
     private final Context _context;
     private RCTCameraViewFinder _viewFinder = null;
     private int _actualDeviceOrientation = -1;
-    private String _captureQuality = "high";
     private int _torchMode = -1;
 
     public RCTCameraView(Context context) {
@@ -110,10 +109,9 @@ public class RCTCameraView extends ViewGroup {
         float height = bottom - top;
         int viewfinderWidth;
         int viewfinderHeight;
-        double ratio;
+        double ratio = this._viewFinder.getRatio();
 
         // Just fill the given space
-        ratio = this._viewFinder.getRatio();
         if (ratio * height < width) {
             viewfinderHeight = (int) (width / ratio);
             viewfinderWidth = (int) width;
