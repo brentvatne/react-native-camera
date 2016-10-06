@@ -47,7 +47,6 @@ export default class Camera extends Component {
 
   static defaultProps = {
     type: CameraManager.Type.back,
-    orientation: CameraManager.Orientation.auto,
     torchMode: CameraManager.TorchMode.off,
     barCodeTypes: Object.values(CameraManager.BarCodeType),
   };
